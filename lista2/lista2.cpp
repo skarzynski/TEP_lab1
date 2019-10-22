@@ -11,9 +11,9 @@ using namespace std;
 
 int main() {
 	Table t1;
-	Table t2("test_param", 7);
+	Table t2("test_param", 7, "P@s0");
 	Table t3(t2);
-
+	
 	t1.showTable();
 	t2.showTable();
 	t3.showTable();
@@ -36,6 +36,7 @@ int main() {
 	t1.showTable();
 	modifyTable(&t1, 20);
 	t1.showTable();
+	
 
 	return 0;
 }

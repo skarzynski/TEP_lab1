@@ -7,22 +7,23 @@
 
 using namespace std;
 
+string const WARNING = "Wpisana dlugosc tablicy jest mniejsza niz aktualna, istnieje ryzyko utraty danych z tablicy, czy chcesz kontynuowac?(tak/nie) ";
+
 void modifyTable(Table* table, int newSize) {
-	int iterationLength = table->getSize();
-	if (newSize < 1) {
+	if (table == nullptr || newSize < 1 || newSize > 1000) {
 		cout << "niepoprawne parametry" << endl;
 		return;
 	}
-	else if (newSize < table->getSize()) {
-		string warning = "Wpisana dlugosc tablicy jest mniejsza niz aktualna, istnieje ryzyko utraty danych z tablicy, czy chcesz kontynuowac?(tak/nie) ";
+	int iterationLength = table->getSize();
+	if (newSize < table->getSize()) {
 		string answer;
 
 		do {
-			cout << warning;
+			cout << WARNING;
 			cin >> answer;
-		} while (answer.compare("tak") != 0 && answer.compare("nie") != 0);
+		} while (answer != "tak" && answer != "nie");
 
-		if (answer.compare("nie") == 0) {
+		if (answer == "nie") {
 			return;
 		}
 
@@ -40,21 +41,20 @@ void modifyTable(Table* table, int newSize) {
 }
 
 void modifyTable(Table table, int newSize) {
-	int iterationLength = table.getSize();
-	if (newSize < 1) {
+	if (newSize < 1 || newSize > 1000) {
 		cout << "niepoprawne parametry" << endl;
 		return;
 	}
-	else if (newSize < table.getSize()) {
-		string warning = "Wpisana dlugosc tablicy jest mniejsza niz aktualna, istnieje ryzyko utraty danych z tablicy, czy chcesz kontynuowac?(tak/nie) ";
+	int iterationLength = table.getSize();
+	if (newSize < table.getSize()) {
 		string answer;
 
 		do {
-			cout << warning;
+			cout << WARNING;
 			cin >> answer;
-		} while (answer.compare("tak") != 0 && answer.compare("nie") != 0);
+		} while (answer != "tak" && answer != "nie");
 
-		if (answer.compare("nie") == 0) {
+		if (answer == "nie") {
 			return;
 		}
 

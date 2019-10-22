@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <iostream>
 
 using namespace std;
@@ -8,26 +8,30 @@ class Table {
 private:
 
 	string name;			//nazwa tablicy
-	int tableLength;		//d³ugoœæ tablicy
-	int* table;				//wskaŸnik na tablicê
+	string password;		//hasÅ‚o (min. 5 znakÃ³w, 1 maÅ‚a litera, 1 wielka litera, 1 znak specjalny, 1 cyfra)
+	int tableLength;		//dÅ‚ugoÅ›Ä‡ tablicy
+	int* table;				//wskaÅºnik na tablicÄ™
 
 public:
 
-	Table();				//konstruktor bezparametrowy z domyœlnymi wartoœciami
-	Table(string name, int tableLength);  //konstruktor z parametrami
-	Table(Table &otherTable);			//konstruktor kopiuj¹cy
+	Table();				//konstruktor bezparametrowy z domyÅ›lnymi wartoÅ›ciami
+	Table(string name, int tableLength, string password);  //konstruktor z parametrami
+	Table(Table &otherTable);			//konstruktor kopiujÄ…cy
 
 	~Table();				//destruktor
 
-	string getName();					//metoda zwraca nazwê tablicy
-	void setName(string name);			//metoda zmienia nazwê tablicy
-	int getSize();						//metoda zwraca d³ugoœæ tablicy
-	bool setNewSize(int newSize);		//metoda zmienia d³ugoœæ tablicy
-	int* getTable();					//metoda zwraca tablicê
-	void setTable(int* newTable);		//metoda ustawia now¹ tablicê
-	Table* cloneTable();				//metoda klonuj¹ca obiekt (Zbêdna. Powiela funkcjonalnoœæ konstruktora kopiuj¹cego)
+	string getName();					//metoda zwraca nazwÄ™ tablicy
+	void setName(string newName);		//metoda zmienia nazwÄ™ tablicy
+	void setPassword(string newPassword);	//metoda ustawia nowe hasÅ‚o (musi siÄ™ rÃ³Å¼niÄ‡ o dwa znaki)
+	int getSize();						//metoda zwraca dÅ‚ugoÅ›Ä‡ tablicy
+	bool setNewSize(int newSize);		//metoda zmienia dÅ‚ugoÅ›Ä‡ tablicy
+	int* getTable();					//metoda zwraca tablicÄ™
+	void setTable(int* newTable);		//metoda ustawia nowÄ… tablicÄ™
+	Table* cloneTable();				//metoda klonujÄ…ca obiekt (ZbÄ™dna. Powiela funkcjonalnoÅ›Ä‡ konstruktora kopiujÄ…cego)
 	void setSize(int newSize);			//metoda zmienia parametr tableLength
-	
-	void showTable();					//metoda wyœwietlaj¹ca nazwê, d³ugoœæ i zawartoœæ tablicy
+
+	void showTable();					//metoda wyÅ“wietlajÄ…ca nazwÄ™, dÅ‚ugoÅ›Ä‡ i zawartoÅ›Ä‡ tablicy
+	bool checkPassword(string password); //sprawdza czy hasÅ‚o jest poprawne
+	bool checkNewPassword(string oldPassword, string newPassword); //sprawdza czy hasÅ‚o rÃ³Å¼ni siÄ™ od poprzedniego o dwa znaki
 
 };

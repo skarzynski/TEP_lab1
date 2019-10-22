@@ -1,5 +1,5 @@
-﻿// pch.cpp: plik źródłowy odpowiadający wstępnie skompilowanemu nagłówkowi, niezbędny do powodzenia kompilacji
+// pch.cpp: source file corresponding to pre-compiled header; necessary for compilation to succeed
 
 #include "pch.h"
 
-// Ogólnie rzecz biorąc, zignoruj ten plik, ale miej go pod ręką, jeśli używasz wstępnie skompilowanych nagłówków.
+// In general, ignore this file, but keep it around if you are using pre-compiled headers.
