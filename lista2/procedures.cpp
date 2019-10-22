@@ -7,11 +7,9 @@
 
 using namespace std;
 
-string const WARNING = "Wpisana dlugosc tablicy jest mniejsza niz aktualna, istnieje ryzyko utraty danych z tablicy, czy chcesz kontynuowac?(tak/nie) ";
-
 void modifyTable(Table* table, int newSize) {
 	if (table == nullptr || newSize < 1 || newSize > 1000) {
-		cout << "niepoprawne parametry" << endl;
+		cout << BAD_PARAMS << endl;
 		return;
 	}
 	int iterationLength = table->getSize();
@@ -19,7 +17,7 @@ void modifyTable(Table* table, int newSize) {
 		string answer;
 
 		do {
-			cout << WARNING;
+			cout << WARNING_TAB_LENGTH;
 			cin >> answer;
 		} while (answer != "tak" && answer != "nie");
 
@@ -42,7 +40,7 @@ void modifyTable(Table* table, int newSize) {
 
 void modifyTable(Table table, int newSize) {
 	if (newSize < 1 || newSize > 1000) {
-		cout << "niepoprawne parametry" << endl;
+		cout << BAD_PARAMS << endl;
 		return;
 	}
 	int iterationLength = table.getSize();
@@ -50,7 +48,7 @@ void modifyTable(Table table, int newSize) {
 		string answer;
 
 		do {
-			cout << WARNING;
+			cout << WARNING_TAB_LENGTH;
 			cin >> answer;
 		} while (answer != "tak" && answer != "nie");
 

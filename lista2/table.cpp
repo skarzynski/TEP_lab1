@@ -22,11 +22,11 @@ Table::Table() {
 
 Table::Table(string name, int tableLength, string password) {
 	if (name == "" || tableLength < 1 || tableLength > 1000) {
-		cout << "niepoprawne parametry" << endl;
+		cout << BAD_PARAMS << endl;
 		return;
 	}
 	else if (!checkPassword(password)) {
-		cout << "haslo nie spelnia wymagan" << endl;
+		cout << BAD_PASS_SET << endl;
 	}
 	this->name = name;
 	this->tableLength = tableLength;
@@ -39,7 +39,7 @@ Table::Table(string name, int tableLength, string password) {
 
 Table::Table(Table &otherTable) {
 	if (&otherTable == nullptr) {
-		cout << "niepoprawne parametry" << endl;
+		cout << BAD_PARAMS << endl;
 		return;
 	}
 	this->name = otherTable.name + "_copy";
@@ -76,7 +76,7 @@ void Table::setName(string newName) {
 }
 
 void Table::setPassword(string newPassword) {
-	//TODO:
+	// TODO: implement setPassword
 }
 
 int Table::getSize() {
@@ -86,15 +86,14 @@ int Table::getSize() {
 bool Table::setNewSize(int newSize) {
 	int iterationLength = this->tableLength;
 	if (newSize < 1 || newSize > 1000) {
-		cout << "niepoprawne parametry" << endl;
+		cout << BAD_PARAMS << endl;
 		return false;
 	}
 	else if (newSize < this->tableLength) {
-		string warning = "Wpisana dlugosc tablicy jest mniejsza niz aktualna, istnieje ryzyko utraty danych z tablicy, czy chcesz kontynuowac?(tak/nie) ";
 		string answer;
 
 		do {
-			cout << warning;
+			cout << WARNING_TAB_LENGTH;
 			cin >> answer;
 		} while (answer != "tak" && answer != "nie");
 
@@ -124,7 +123,7 @@ int* Table::getTable() {
 
 void Table::setTable(int* newTable) {
 	if (newTable == nullptr) {
-		cout << "niepoprawne parametry" << endl;
+		cout << BAD_PARAMS << endl;
 		return;
 	}
 	delete[] this->table;
@@ -137,7 +136,7 @@ Table* Table::cloneTable() {
 
 void Table::setSize(int newSize) {
 	if (newSize < 1 || newSize > 1000) {
-		cout << "niepoprawne parametry" << endl;
+		cout << BAD_PARAMS << endl;
 		return;
 	}
 	this->tableLength = newSize;

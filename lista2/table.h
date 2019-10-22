@@ -3,6 +3,10 @@
 
 using namespace std;
 
+const string BAD_PARAMS = "Niepoprawne parametry";
+const string WARNING_TAB_LENGTH = "Wpisana dlugosc tablicy jest mniejsza niz aktualna, istnieje ryzyko utraty danych z tablicy, czy chcesz kontynuowac?(tak/nie) ";
+const string BAD_PASS_SET = "Haslo nie spelnia wymagan";
+
 class Table {
 
 private:
