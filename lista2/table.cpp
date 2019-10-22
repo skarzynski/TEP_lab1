@@ -5,6 +5,10 @@
 
 using namespace std;
 
+/*-----------------------------
+Konstruktory i desktruktor
+-----------------------------*/
+
 Table::Table() {
 	this->name = "default_name";
 	this->tableLength = 10;
@@ -49,17 +53,29 @@ Table::~Table() {
 	cout << "usuwam: " << this->name << endl;
 }
 
+/*-----------------------------
+Metody
+-----------------------------*/
+
+string Table::getName() {
+	return this->name;
+}
+
 void Table::setName(string name) {
 	this->name = name;
 }
 
-bool Table::setNewSize(int tableLength) {
+int Table::getSize() {
+	return this->tableLength;
+}
+
+bool Table::setNewSize(int newSize) {
 	int iterationLength = this->tableLength;
-	if (tableLength < 1) {
+	if (newSize < 1) {
 		cout << "niepoprawne parametry" << endl;
 		return false;
 	}
-	else if (tableLength < this->tableLength) {
+	else if (newSize < this->tableLength) {
 		string warning = "Wpisana dlugosc tablicy jest mniejsza niz aktualna, istnieje ryzyko utraty danych z tablicy, czy chcesz kontynuowac?(tak/nie) ";
 		string answer;
 
@@ -72,10 +88,10 @@ bool Table::setNewSize(int tableLength) {
 			return false;
 		}
 
-		iterationLength = tableLength;
+		iterationLength = newSize;
 	}
 
-	int* new_table = new int[tableLength];
+	int* new_table = new int[newSize];
 
 	for (int i = 0; i < iterationLength; i++) {
 		new_table[i] = this->table[i];
@@ -83,13 +99,26 @@ bool Table::setNewSize(int tableLength) {
 
 	delete[] this->table;
 	this->table = new_table;
-	this->tableLength = tableLength;
+	this->tableLength = newSize;
 
 	return true;
 }
 
+int* Table::getTable() {
+	return this->table;
+}
+
+void Table::setTable(int* newTable) {
+	delete[] this->table;
+	this->table = newTable;
+}
+
 Table* Table::cloneTable() {
 	return new Table(*this);
+}
+
+void Table::setSize(int newSize) {
+	this->tableLength = newSize;
 }
 
 void Table::showTable() {

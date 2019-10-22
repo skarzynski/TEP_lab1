@@ -2,8 +2,10 @@
 //
 
 #include "pch.h"
-#include <iostream>
 #include "table.h"
+#include "procedures.h"
+
+#include <iostream>
 
 using namespace std;
 
@@ -28,8 +30,12 @@ int main() {
 	Table* new_cloned_tab;
 	new_cloned_tab = t2.cloneTable();
 
-	new_cloned_tab->showTable();
+	(*new_cloned_tab).showTable();
 
+	modifyTable(t1, 20);
+	t1.showTable();
+	modifyTable(&t1, 20);
+	t1.showTable();
 
 	return 0;
 }
