@@ -3,6 +3,8 @@
 
 #include <string>
 #include <iostream>
+#include <cmath>
+#include <algorithm>
 
 using namespace std;
 
@@ -76,7 +78,9 @@ void Table::setName(string newName) {
 }
 
 void Table::setPassword(string newPassword) {
-	// TODO: implement setPassword
+	if (checkPassword(newPassword) && checkNewPassword(this->password, newPassword)) {
+		this->password = newPassword;
+	}
 }
 
 int Table::getSize() {
@@ -197,5 +201,30 @@ bool Table::checkPassword(string password) {
 }
 
 bool Table::checkNewPassword(string oldPassword, string newPassword) {
-	return false;
+	bool isValid = false;
+	int differenceCount = 0;
+	int oldPassLength = oldPassword.length();
+	int newPassLength = newPassword.length();
+	int absSubstract = abs(oldPassLength - newPassLength);
+
+	if (absSubstract >= 2) {
+		isValid = true;
+	}
+	else if (absSubstract == 1) {
+		if (newPassword.find(oldPassword) == string::npos) {
+			isValid = true;
+		}
+	}
+	else {
+		for (int i = 0; i < oldPassLength; i++) {
+			if (oldPassword[i] != newPassword[i]) {
+				differenceCount++;
+			}
+		}
+		if (differenceCount >= 2) {
+			isValid = true;
+		}
+	}
+
+	return isValid;
 }
