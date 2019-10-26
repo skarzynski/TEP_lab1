@@ -3,8 +3,6 @@
 
 #include <string>
 #include <iostream>
-#include <cmath>
-#include <algorithm>
 
 using namespace std;
 
@@ -20,6 +18,7 @@ Table::Table() {
 	cout << "bezp: " << this->name << endl;
 
 	this->table = new int[this->tableLength];
+	fillWithFives();
 }
 
 Table::Table(string name, int tableLength, string password) {
@@ -37,6 +36,7 @@ Table::Table(string name, int tableLength, string password) {
 	cout << "parametr: " << this->name << endl;
 
 	this->table = new int[this->tableLength];
+	fillWithFives();
 }
 
 Table::Table(Table &otherTable) {
@@ -88,7 +88,6 @@ int Table::getSize() {
 }
 
 bool Table::setNewSize(int newSize) {
-	int iterationLength = this->tableLength;
 	if (newSize < 1 || newSize > 1000) {
 		cout << BAD_PARAMS << endl;
 		return false;
@@ -105,13 +104,17 @@ bool Table::setNewSize(int newSize) {
 			return false;
 		}
 
-		iterationLength = newSize;
 	}
 
 	int* new_table = new int[newSize];
 
-	for (int i = 0; i < iterationLength; i++) {
-		new_table[i] = this->table[i];
+	for (int i = 0; i < newSize; i++) {
+		if (i >= this->tableLength) {
+			new_table[i] = 0;
+		}
+		else {
+			new_table[i] = this->table[i];
+		}
 	}
 
 	delete[] this->table;
@@ -227,4 +230,10 @@ bool Table::checkNewPassword(string oldPassword, string newPassword) {
 	}
 
 	return isValid;
+}
+
+void Table::fillWithFives() {
+	for (int i = 0; i < this->tableLength; i++) {
+		table[i] = 5;
+	}
 }

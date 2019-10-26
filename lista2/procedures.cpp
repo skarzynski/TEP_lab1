@@ -12,7 +12,6 @@ void modifyTable(Table* table, int newSize) {
 		cout << BAD_PARAMS << endl;
 		return;
 	}
-	int iterationLength = table->getSize();
 	if (newSize < table->getSize()) {
 		string answer;
 
@@ -25,13 +24,17 @@ void modifyTable(Table* table, int newSize) {
 			return;
 		}
 
-		iterationLength = newSize;
 	}
 
 	int* new_table = new int[newSize];
 
-	for (int i = 0; i < iterationLength; i++) {
-		new_table[i] = table->getTable()[i];
+	for (int i = 0; i < newSize; i++) {
+		if (i >= table->getSize()) {
+			new_table[i] = 0;
+		}
+		else {
+			new_table[i] = table->getTable()[i];
+		}
 	}
 
 	table->setTable(new_table);
@@ -43,7 +46,6 @@ void modifyTable(Table table, int newSize) {
 		cout << BAD_PARAMS << endl;
 		return;
 	}
-	int iterationLength = table.getSize();
 	if (newSize < table.getSize()) {
 		string answer;
 
@@ -56,13 +58,17 @@ void modifyTable(Table table, int newSize) {
 			return;
 		}
 
-		iterationLength = newSize;
 	}
 
 	int* new_table = new int[newSize];
 
-	for (int i = 0; i < iterationLength; i++) {
-		new_table[i] = table.getTable()[i];
+	for (int i = 0; i < newSize; i++) {
+		if (i >= table.getSize()) {
+			new_table[i] = 0;
+		}
+		else {
+			new_table[i] = table.getTable()[i];
+		}
 	}
 
 	table.setTable(new_table);

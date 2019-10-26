@@ -16,6 +16,8 @@ private:
 	int tableLength;		//długość tablicy
 	int* table;				//wskaźnik na tablicę
 
+	void fillWithFives();				//wypełnia tablicę cyfrą 5
+
 public:
 
 	Table();				//konstruktor bezparametrowy z domyślnymi wartościami
@@ -37,5 +39,6 @@ public:
 	void showTable();					//metoda wyœwietlająca nazwę, długość i zawartość tablicy
 	bool checkPassword(string password); //sprawdza czy hasło jest poprawne
 	bool checkNewPassword(string oldPassword, string newPassword); //sprawdza czy hasło różni się od poprzedniego o dwa znaki
+
 
 };
