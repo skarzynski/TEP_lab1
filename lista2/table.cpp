@@ -39,7 +39,7 @@ Table::Table(string name, int tableLength, string password) {
 	fillWithFives();
 }
 
-Table::Table(Table &otherTable) {
+Table::Table(const Table &otherTable) {
 	if (&otherTable == nullptr) {
 		cout << BAD_PARAMS << endl;
 		return;

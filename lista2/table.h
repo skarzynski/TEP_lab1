@@ -22,7 +22,7 @@ public:
 
 	Table();				//konstruktor bezparametrowy z domyślnymi wartościami
 	Table(string name, int tableLength, string password);  //konstruktor z parametrami
-	Table(Table &otherTable);			//konstruktor kopiujący
+	Table(const Table &otherTable);			//konstruktor kopiujący
 
 	~Table();				//destruktor
 
