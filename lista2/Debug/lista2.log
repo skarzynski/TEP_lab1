@@ -1,5 +1,6 @@
 ﻿  lista2.cpp
+  procedures.cpp
   table.cpp
-c:\xampp\htdocs\tep_lab2\lista2\table.cpp(172): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\xampp\htdocs\tep_lab2\lista2\table.cpp(186): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
   Generowanie kodu...
   lista2.vcxproj -> C:\xampp\htdocs\TEP_lab2\Debug\lista2.exe

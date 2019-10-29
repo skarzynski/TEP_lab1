@@ -36,6 +36,11 @@ int main() {
 	t1.showTable();
 	modifyTable(&t1, 20);
 	t1.showTable();
+
+	t1.setPassword("password");
+	t1.setPassword("P@ssw0rd");
+	t1.changePassword("P@ssw0rdo");
+	t1.changePassword("P@sww0rdo");
 	
 
 	return 0;

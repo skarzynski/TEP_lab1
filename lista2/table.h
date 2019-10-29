@@ -6,6 +6,7 @@ using namespace std;
 const string BAD_PARAMS = "Niepoprawne parametry";
 const string WARNING_TAB_LENGTH = "Wpisana dlugosc tablicy jest mniejsza niz aktualna, istnieje ryzyko utraty danych z tablicy, czy chcesz kontynuowac?(tak/nie) ";
 const string BAD_PASS_SET = "Haslo nie spelnia wymagan";
+const string PASS_SETTED = "Haslo zostalo ustawione";
 
 class Table {
 
@@ -28,7 +29,8 @@ public:
 
 	string getName();					//metoda zwraca nazwę tablicy
 	void setName(string newName);		//metoda zmienia nazwę tablicy
-	void setPassword(string newPassword);	//metoda ustawia nowe hasło (musi się różnić o dwa znaki)
+	void setPassword(string newPassword);	//metoda ustawia nowe hasło (wymagania jak przy polu password)
+	void changePassword(string newPassword); //metoda zmienia hasło na nowe (wymagania jak wyżej + nowe musi się różnić na dwóch pozycjach od poprzedniego)
 	int getSize();						//metoda zwraca długość tablicy
 	bool setNewSize(int newSize);		//metoda zmienia długość tablicy
 	int* getTable();					//metoda zwraca tablicę

@@ -78,8 +78,22 @@ void Table::setName(string newName) {
 }
 
 void Table::setPassword(string newPassword) {
+	if (checkPassword(newPassword)) {
+		this->password = newPassword;
+		cout << PASS_SETTED << endl;
+	}
+	else {
+		cout << BAD_PASS_SET << endl;
+	}
+}
+
+void Table::changePassword(string newPassword) {
 	if (checkPassword(newPassword) && checkNewPassword(this->password, newPassword)) {
 		this->password = newPassword;
+		cout << PASS_SETTED << endl;
+	}
+	else {
+		cout << BAD_PASS_SET << endl;
 	}
 }
 
